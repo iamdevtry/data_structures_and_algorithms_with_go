@@ -31,10 +31,6 @@ func (queue *Queue) Add(order *Order) {
 		for i, addedOrder := range *queue {
 			if order.priority > addedOrder.priority {
 				fmt.Println("==== run ====")
-				x := (*queue)[:i]
-				y := Queue{order}
-				z := (*queue)[i:]
-				o := append(Queue{order}, (*queue)[i:]...)
 				*queue = append((*queue)[:i], append(Queue{order}, (*queue)[i:]...)...)
 				appended = true
 				break
